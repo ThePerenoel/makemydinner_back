@@ -1,4 +1,4 @@
-package com.lno.MakeMyDinner
+package com.lno.makemydinner
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

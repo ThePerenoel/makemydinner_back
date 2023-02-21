@@ -1,4 +1,4 @@
-package com.lno.MakeMyDinner
+package com.lno.makemydinner
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
