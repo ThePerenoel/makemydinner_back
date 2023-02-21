@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 class MenuTest {
 
     @Test
-    fun getGroceriesList_shouldReturnAListOfAllIngredients() {
+    fun getGroceriesList_shouldReturnAListOfAllIngredientsWithoutDuplicates() {
         val ingredientsForPastaCarbonara = listOf(
             Ingredient("egg"),
             Ingredient("linguine"),
@@ -32,10 +32,8 @@ class MenuTest {
             Ingredient("parmigiano"),
             Ingredient("pepper"),
             Ingredient("tomatoe"),
-            Ingredient("linguine"),
             Ingredient("wine"),
-            Ingredient("bacon bites"),
-            Ingredient("pepper")
+            Ingredient("bacon bites")
         )
 
         val groceriesList = menu.getGroceriesList()
