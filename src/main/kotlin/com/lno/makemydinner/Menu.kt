@@ -6,4 +6,8 @@ class Menu(private val recipes: List<Recipe>) {
         return recipes.flatMap { recipe -> recipe.ingredients }
             .distinct()
     }
+
+    fun hasNumberOfRecipes(numberOfRecipes: Int): Boolean {
+        return recipes.size == numberOfRecipes
+    }
 }
