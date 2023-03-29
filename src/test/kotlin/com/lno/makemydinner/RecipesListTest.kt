@@ -11,6 +11,28 @@ class RecipesListTest {
     @Test
     @DisplayName("Given the number of recipes in the menu, createMenu should return a menu with the same number of recipes")
     fun createMenu_shouldCreateAMenu() {
+        val recipes = getRecipes()
+        val recipesList = RecipesList(recipes)
+        val expectedNumberOfRecipes = 5
+
+        val menu: Menu = recipesList.createMenu(expectedNumberOfRecipes)
+
+        assertThat(menu.hasNumberOfRecipes(expectedNumberOfRecipes)).isTrue
+    }
+
+    @Test
+    @DisplayName("Given a number of recipes higher than number of recipes in the list, createMenu should return an empty menu")
+    fun createMenu_shouldReturnAnEmptyMenu() {
+        val recipes = getRecipes()
+        val recipesList = RecipesList(recipes)
+        val expectedNumberOfRecipes = recipes.size + 2
+
+        val menu: Menu = recipesList.createMenu(expectedNumberOfRecipes)
+
+        assertThat(menu.isEmpty()).isTrue
+    }
+
+    private fun getRecipes(): List<Recipe> {
         val ingredientsForPastaCarbonara = listOf(
             Ingredient("egg"),
             Ingredient("linguine"),
@@ -58,7 +80,7 @@ class RecipesListTest {
             Ingredient("bacon bites"),
             Ingredient("rice"),
         )
-        val recipes = listOf(
+        return listOf(
             Recipe("Pasta Carbonara", ingredientsForPastaCarbonara),
             Recipe("Pasta Al Amatriciana", ingredientsForPastaAlAmatriciana),
             Recipe("Chicken Saute", ingredientsForChickenSaute),
@@ -67,11 +89,5 @@ class RecipesListTest {
             Recipe("Chicken Fajitas", ingredientsForChickenFajitas),
             Recipe("Thaï rice", ingredientsForThaiRice),
         )
-        val recipesList = RecipesList(recipes)
-        val expectedNumberOfRecipes = 5
-
-        val menu: Menu = recipesList.createMenu(expectedNumberOfRecipes)
-
-        assertThat(menu.hasNumberOfRecipes(expectedNumberOfRecipes)).isTrue
     }
 }

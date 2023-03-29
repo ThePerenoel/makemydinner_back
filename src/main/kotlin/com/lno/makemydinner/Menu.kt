@@ -10,4 +10,8 @@ class Menu(private val recipes: List<Recipe>) {
     fun hasNumberOfRecipes(numberOfRecipes: Int): Boolean {
         return recipes.size == numberOfRecipes
     }
+
+    fun isEmpty(): Boolean {
+        return recipes.isEmpty()
+    }
 }
